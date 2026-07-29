@@ -1,0 +1,1768 @@
+/* ==========================================
+   WeatherInsight
+   Modern Glassmorphism Stylesheet
+========================================== */
+
+
+/* Google Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+
+/* ==========================================
+   CSS VARIABLES
+========================================== */
+
+:root{
+
+    --primary:#2563eb;
+    --primary-light:#60a5fa;
+
+    --glass:rgba(255,255,255,0.35);
+    --glass-light:rgba(255,255,255,0.65);
+    --border:rgba(255,255,255,0.5);
+
+    --text:#0f172a;
+    --text-secondary:#334155;
+    --text-muted:#475569;
+
+    --white:#ffffff;
+
+    --shadow:
+    0 20px 40px rgba(0,0,0,0.18);
+
+    --radius:25px;
+
+}
+
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+    transition:background 1s ease;
+
+}
+
+
+
+/* ==========================================
+   HIDDEN SECTION SYSTEM
+========================================== */
+
+.hidden-section{
+
+    display:none;
+
+}
+
+
+.show-section{
+
+    display:block;
+    animation:fadeIn .5s ease;
+}
+
+
+@keyframes revealSection{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+ 
+/* ==========================================
+   WEATHER BACKGROUND THEMES
+========================================== */
+
+
+/* Sunny */
+
+.clear-weather{
+
+    background:
+    linear-gradient(
+        135deg,
+        #56ccf2,
+        #f2fcfe
+    );
+
+}
+
+
+
+/* Cloudy */
+
+.cloudy-weather{
+
+    background:
+    linear-gradient(
+        135deg,
+        #cfd9df,
+        #e2ebf0
+    );
+
+}
+
+
+
+/* Rain */
+
+.rainy-weather{
+
+    background:
+    linear-gradient(
+        135deg,
+        #4b79a1,
+        #283e51
+    );
+
+}
+
+
+
+/* Thunderstorm */
+
+.storm-weather{
+
+    background:
+    linear-gradient(
+        135deg,
+        #232526,
+        #414345
+    );
+
+}
+
+
+
+/* Default */
+
+.default-weather{
+
+    background:
+    linear-gradient(
+        135deg,
+        #74ebd5,
+        #acb6e5
+    );
+
+}
+
+
+
+
+
+/* ==========================================
+   CLOUD LAYER
+========================================== */
+
+.cloud{
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+
+
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header{
+
+    width:100%;
+
+    padding:30px 8%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+
+
+
+.logo-container{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:18px;
+
+}
+
+
+
+
+
+.app-logo{
+
+    width:85px;
+
+    height:85px;
+
+    object-fit:contain;
+
+    filter:
+    drop-shadow(
+        0 8px 15px rgba(0,0,0,.2)
+    );
+
+    transition:.3s ease;
+
+}
+
+
+
+
+
+.app-logo:hover{
+
+    transform:
+    scale(1.08)
+    rotate(3deg);
+
+}
+
+
+
+
+
+.logo-container h1{
+
+    font-size:2.3rem;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:var(--text);
+
+    text-shadow:
+
+    0 3px 12px rgba(0,0,0,.18);
+
+}
+
+ 
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
+
+main{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+
+
+
+/* ==========================================
+   SEARCH SECTION
+========================================== */
+
+.search-section{
+
+    margin-top:10px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+.search-section form{
+
+    display:flex;
+
+    gap:15px;
+
+    width:min(600px,100%);
+
+}
+
+
+
+
+
+.search-section input{
+
+    flex:1;
+
+    padding:16px 25px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:50px;
+
+    font-size:1rem;
+
+    font-family:'Poppins',sans-serif;
+
+    color:var(--text);
+
+    background:
+
+    rgba(255,255,255,.75);
+
+
+    backdrop-filter:
+
+    blur(10px);
+
+
+    box-shadow:
+
+    var(--shadow);
+
+
+    transition:.3s ease;
+
+}
+
+
+
+
+
+.search-section input::placeholder{
+
+    color:#64748b;
+
+}
+
+
+
+
+
+.search-section input:focus{
+
+    transform:
+
+    translateY(-3px);
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.2);
+
+}
+
+
+
+
+
+.search-section button{
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+
+    font-family:'Poppins',sans-serif;
+
+    font-weight:600;
+
+
+    color:white;
+
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #2563eb,
+
+        #38bdf8
+
+    );
+
+
+    box-shadow:
+
+    0 10px 25px rgba(37,99,235,.35);
+
+
+    transition:.3s ease;
+
+}
+
+
+
+
+
+.search-section button:hover{
+
+    transform:
+
+    translateY(-4px);
+
+
+    box-shadow:
+
+    0 15px 35px rgba(37,99,235,.45);
+
+}
+
+
+
+
+
+.search-section button:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.7;
+
+}
+
+
+
+
+
+/* ==========================================
+   LOADING ANIMATION
+========================================== */
+
+
+#loadingContainer{
+
+    display:none;
+
+    margin-top:30px;
+
+    text-align:center;
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+
+
+
+
+.loading-cloud{
+
+    font-size:3rem;
+
+    animation:
+
+    floatingCloud 1.5s ease-in-out infinite;
+
+}
+
+
+
+
+
+@keyframes floatingCloud{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+}
+
+
+
+
+
+/* ==========================================
+   ERROR MESSAGE
+========================================== */
+
+
+#errorContainer{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+
+
+
+.error-message{
+
+    color:#991b1b;
+
+
+    font-weight:600;
+
+
+    background:
+
+    rgba(255,255,255,.75);
+
+
+    backdrop-filter:
+
+    blur(10px);
+
+
+    display:inline-block;
+
+
+    padding:10px 20px;
+
+
+    border-radius:20px;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.1);
+
+}
+
+ 
+/* ==========================================
+   WEATHER CARD
+   Glassmorphism Design
+========================================== */
+
+
+#weatherContainer{
+
+    margin-top:45px;
+
+    position:relative;
+
+    z-index:3;
+
+}
+
+
+
+
+
+.weather-card{
+
+    max-width:600px;
+
+    margin:auto;
+
+    padding:40px 35px;
+
+    text-align:center;
+
+
+    border-radius:var(--radius);
+
+
+    background:
+
+    var(--glass);
+
+
+    backdrop-filter:
+
+    blur(20px);
+
+
+    -webkit-backdrop-filter:
+
+    blur(20px);
+
+
+
+    border:
+
+    1px solid var(--border);
+
+
+
+    box-shadow:
+
+    var(--shadow);
+
+
+
+    transition:.4s ease;
+
+}
+
+
+
+
+
+.weather-card:hover{
+
+    transform:
+
+    translateY(-8px);
+
+
+
+    box-shadow:
+
+    0 25px 50px rgba(0,0,0,.25);
+
+}
+
+
+
+
+
+.weather-card h2{
+
+    color:var(--text);
+
+    font-size:2rem;
+
+    font-weight:700;
+
+
+    text-shadow:
+
+    0 3px 10px rgba(0,0,0,.15);
+
+}
+
+
+
+
+
+.weather-date{
+
+    margin-top:8px;
+
+    color:var(--text-secondary);
+
+    font-size:.95rem;
+
+}
+
+
+
+
+
+/* ==========================================
+   WEATHER ICON
+========================================== */
+
+
+#weatherIcon{
+
+    width:150px;
+
+    margin:20px auto;
+
+    display:block;
+
+
+    animation:
+
+    floatingIcon 4s ease-in-out infinite;
+
+}
+
+
+
+
+
+@keyframes floatingIcon{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+
+
+
+
+/* ==========================================
+   TEMPERATURE
+========================================== */
+
+
+#temperature{
+
+    font-size:4.5rem;
+
+    font-weight:800;
+
+
+    color:var(--text);
+
+
+    letter-spacing:2px;
+
+
+    text-shadow:
+
+    0 6px 18px rgba(0,0,0,.15);
+
+}
+
+
+
+
+
+#weatherDescription{
+
+    margin-top:10px;
+
+
+    color:var(--text-secondary);
+
+
+    font-size:1.2rem;
+
+
+    font-weight:600;
+
+
+    text-transform:capitalize;
+
+}
+
+
+
+
+
+/* ==========================================
+   WEATHER DETAILS CARDS
+========================================== */
+
+
+.details-section{
+
+    margin-top:35px;
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+
+    gap:20px;
+
+}
+
+
+
+
+
+.detail-box{
+
+    padding:25px 20px;
+
+
+    text-align:center;
+
+
+    border-radius:var(--radius);
+
+
+    background:
+
+    var(--glass);
+
+
+    backdrop-filter:
+
+    blur(18px);
+
+
+    -webkit-backdrop-filter:
+
+    blur(18px);
+
+
+
+    border:
+
+    1px solid var(--border);
+
+
+    box-shadow:
+
+    var(--shadow);
+
+
+    transition:.3s ease;
+
+}
+
+
+
+
+
+.detail-box:hover{
+
+    transform:
+
+    translateY(-8px);
+
+}
+
+
+
+
+
+.detail-box h4{
+
+    color:var(--text-muted);
+
+
+    font-size:.95rem;
+
+
+    font-weight:600;
+
+
+    margin-bottom:12px;
+
+}
+
+
+
+
+
+.detail-box p{
+
+    color:var(--text);
+
+
+    font-size:1.4rem;
+
+
+    font-weight:700;
+
+}
+
+
+
+
+
+/* ==========================================
+   SUNRISE / SUNSET SECTION
+========================================== */
+
+
+.sun-section{
+
+    margin-top:35px;
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+
+    gap:20px;
+
+}
+
+
+
+
+
+.sun-box{
+
+    padding:30px;
+
+
+    text-align:center;
+
+
+    border-radius:var(--radius);
+
+
+    background:
+
+    var(--glass);
+
+
+
+    backdrop-filter:
+
+    blur(18px);
+
+
+    -webkit-backdrop-filter:
+
+    blur(18px);
+
+
+
+    border:
+
+    1px solid var(--border);
+
+
+    box-shadow:
+
+    var(--shadow);
+
+
+    transition:.3s ease;
+
+}
+
+
+
+
+
+.sun-box:hover{
+
+    transform:
+
+    translateY(-8px);
+
+}
+
+
+
+
+
+.sun-box h4{
+
+    color:var(--text-muted);
+
+
+    font-size:1rem;
+
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+.sun-box p{
+
+    color:var(--text);
+
+
+    font-size:1.5rem;
+
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================
+   FORECAST SECTION
+========================================== */
+
+#forecastContainer{
+    display:none;
+    margin-top:45px;
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+
+.forecast-card{
+
+    padding:25px;
+
+    text-align:center;
+
+
+    border-radius:var(--radius);
+
+
+    background:
+
+    var(--glass);
+
+
+    backdrop-filter:
+
+    blur(18px);
+
+
+    -webkit-backdrop-filter:
+
+    blur(18px);
+
+
+
+    border:
+
+    1px solid var(--border);
+
+
+
+    box-shadow:
+
+    var(--shadow);
+
+
+
+    transition:.3s ease;
+
+}
+
+
+
+
+
+.forecast-card:hover{
+
+    transform:
+
+    translateY(-8px);
+
+}
+
+
+
+
+
+.forecast-card h3,
+.forecast-card p{
+
+    color:var(--text);
+
+}
+
+
+
+
+
+.forecast-card img{
+
+    width:80px;
+
+}
+
+
+
+
+
+
+/* ==========================================
+   CLOUD ANIMATION
+========================================== */
+
+
+.cloud{
+
+    position:fixed;
+
+
+    width:180px;
+
+
+    height:60px;
+
+
+    background:
+
+    rgba(255,255,255,.65);
+
+
+
+    border-radius:50px;
+
+
+    top:80px;
+
+
+    filter:
+
+    blur(1px);
+
+
+
+    opacity:.8;
+
+
+    z-index:1;
+
+
+    pointer-events:none;
+
+
+    animation:
+
+    moveCloud 45s linear infinite;
+
+}
+
+
+
+
+
+.cloud::before,
+.cloud::after{
+
+    content:"";
+
+
+    position:absolute;
+
+
+    background:white;
+
+
+    border-radius:50%;
+
+}
+
+
+
+
+
+.cloud::before{
+
+    width:80px;
+
+
+    height:80px;
+
+
+    top:-40px;
+
+
+    left:30px;
+
+}
+
+
+
+
+
+.cloud::after{
+
+    width:100px;
+
+
+    height:100px;
+
+
+    top:-50px;
+
+
+    right:20px;
+
+}
+
+
+
+
+
+.cloud-one{
+
+    left:-250px;
+
+
+    animation-duration:
+
+    45s;
+
+}
+
+
+
+
+
+.cloud-two{
+
+    top:250px;
+
+
+    left:-400px;
+
+
+    opacity:.5;
+
+
+    animation-duration:
+
+    65s;
+
+}
+
+
+
+
+
+.cloud-three{
+
+    top:450px;
+
+
+    left:-500px;
+
+
+    opacity:.35;
+
+
+    animation-duration:
+
+    80s;
+
+}
+
+
+
+
+
+@keyframes moveCloud{
+
+
+    from{
+
+        transform:
+
+        translateX(0);
+
+    }
+
+
+    to{
+
+        transform:
+
+        translateX(140vw);
+
+    }
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+
+footer{
+    margin-top:70px;
+    padding:30px;
+    text-align:center;
+    color:#ffffff;
+    position:relative;
+    z-index:3;
+    font-size:.9rem;
+    font-weight:400;
+    text-shadow:none;
+}
+
+
+
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+
+@media(max-width:900px){
+
+
+    .details-section{
+
+
+        grid-template-columns:
+
+        repeat(2,1fr);
+
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:700px){
+
+
+    .header{
+
+
+        padding:25px 5%;
+
+
+    }
+
+
+
+
+    .logo-container h1{
+
+
+        font-size:1.7rem;
+
+
+    }
+
+
+
+
+    .app-logo{
+
+
+        width:65px;
+
+
+        height:65px;
+
+
+    }
+
+
+
+
+    .search-section form{
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+
+    .search-section button{
+
+
+        width:100%;
+
+
+    }
+
+
+
+
+    .sun-section{
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:600px){
+
+
+    .details-section{
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+    }
+
+
+
+
+    .weather-card{
+
+
+        padding:30px 20px;
+
+
+    }
+
+
+
+
+    #temperature{
+
+
+        font-size:3.2rem;
+
+
+    }
+
+
+}
+
+/* ==========================================
+   LIVE CLOCK
+========================================== */
+
+.live-clock{
+    margin-top:8px;
+    font-size:1.6rem;
+    font-weight:700;
+    color:var(--text);
+    letter-spacing:1px;
+    text-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+/* ==========================================
+   FORECAST DATE
+========================================== */
+
+.forecast-date{
+    margin-bottom:2px;
+    font-size:1.2rem;
+    font-weight:700;
+    color:var(--text);
+}
+
+.forecast-day{
+    margin-bottom:15px;
+    font-size:.85rem;
+    font-weight:500;
+    color:var(--text-muted);
+}
+
+/* ==========================================
+   SEARCH HISTORY SECTION
+========================================== */
+
+
+.history-section{
+
+    margin-top:35px;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:3;
+
+}
+
+
+.history-section h3{
+
+    color:var(--text);
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+    text-shadow:
+
+    0 3px 10px rgba(0,0,0,.15);
+
+}
+
+
+#searchHistory{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+/* ==========================================
+   SEARCH HISTORY BUTTONS
+========================================== */
+
+
+.history-btn{
+
+    padding:10px 22px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+
+    background:
+
+    rgba(255,255,255,.45);
+
+
+    backdrop-filter:
+
+    blur(15px);
+
+
+    -webkit-backdrop-filter:
+
+    blur(15px);
+
+
+    border:
+
+    1px solid var(--border);
+
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.12);
+
+
+    transition:.3s ease;
+
+}
+
+
+
+.history-btn:hover{
+
+    transform:
+
+    translateY(-5px);
+
+
+    background:
+
+    rgba(255,255,255,.75);
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.18);
+
+}
+
+
+
+.history-btn:active{
+
+    transform:
+
+    scale(.95);
+
+}
+
+/* ==========================================
+   SEARCH HISTORY ANIMATION
+========================================== */
+
+
+.history-section{
+
+    animation:
+
+    fadeIn .5s ease;
+
+}
+
+
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(15px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+    }
+
+}
+
+
+
+
+/* ==========================================
+   EMPTY HISTORY MESSAGE
+========================================== */
+
+
+.history-empty{
+
+    color:var(--text-muted);
+
+    font-size:.85rem;
+
+    font-weight:500;
+
+    opacity:.8;
+
+}
+
+
+
+
+/* ==========================================
+   RESPONSIVE SEARCH HISTORY
+========================================== */
+
+
+@media(max-width:600px){
+
+
+    #searchHistory{
+
+        gap:10px;
+
+    }
+
+
+    .history-btn{
+
+        width:auto;
+
+        padding:9px 18px;
+
+        font-size:.85rem;
+
+    }
+
+
+}

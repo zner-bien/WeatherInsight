@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        WeatherInsight
+    </title>
+
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="default-weather">
+
+
+<!-- =====================================
+     ANIMATED CLOUDS
+===================================== -->
+
+<div class="cloud cloud-one"></div>
+
+<div class="cloud cloud-two"></div>
+
+<div class="cloud cloud-three"></div>
+
+
+
+<!-- =====================================
+     HEADER
+===================================== -->
+
+<header class="header">
+
+    <div class="logo-container">
+
+        <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="WeatherInsight Logo"
+            class="app-logo">
+
+        <h1>
+
+            WeatherInsight
+
+        </h1>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================
+     MAIN CONTENT
+===================================== -->
+
+<main>
+
+    <!-- =====================================
+     SEARCH SECTION
+===================================== -->
+
+<section class="search-section">
+
+    <form id="weatherForm">
+
+        <input
+            id="cityInput"
+            type="text"
+            name="city"
+            placeholder="Enter City Name"
+            autocomplete="off"
+            required>
+
+        <button
+            id="searchBtn"
+            type="submit">
+
+            Search
+
+        </button>
+
+    </form>
+
+</section>
+
+
+
+<!-- =====================================
+     RECENT SEARCHES
+===================================== -->
+
+<section class="history-section">
+
+    <h3>
+
+        🕒 Recent Searches
+
+    </h3>
+
+    <div id="searchHistory">
+
+        <!-- History buttons appear here -->
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     LOADING
+===================================== -->
+
+<section id="loadingContainer">
+
+    <div class="loading-cloud">
+
+        ☁️
+
+    </div>
+
+    <p>
+
+        Fetching weather data...
+
+    </p>
+
+</section>
+
+
+
+<!-- =====================================
+     ERROR MESSAGE
+===================================== -->
+
+<section id="errorContainer">
+
+</section>
+
+<!-- =====================================
+     WEATHER CARD
+===================================== -->
+
+<section id="weatherContainer" class="hidden-section">
+
+    <div class="weather-card">
+
+        <h2 id="cityName">
+
+            Search a City
+
+        </h2>
+
+        <p
+            class="weather-date"
+            id="currentDate">
+
+        </p>
+
+        <p
+            id="liveClock"
+            class="live-clock">
+
+        </p>
+
+        <img
+            id="weatherIcon"
+            src=""
+            alt="Weather Icon">
+
+        <h1 id="temperature">
+
+            --°C
+
+        </h1>
+
+        <h3 id="weatherDescription">
+
+            Weather information will appear here.
+
+        </h3>
+
+    </div>
+
+</section>
+
+<!-- =====================================
+     WEATHER DETAILS
+===================================== -->
+
+<section
+    id="detailsContainer"
+    class="details-section hidden-section">
+
+    <div class="detail-box">
+
+        <h4>
+
+            💧 Humidity
+
+        </h4>
+
+        <p id="humidity">
+
+            --
+
+        </p>
+
+    </div>
+
+
+
+    <div class="detail-box">
+
+        <h4>
+
+            🌬️ Wind Speed
+
+        </h4>
+
+        <p id="windSpeed">
+
+            --
+
+        </p>
+
+    </div>
+
+
+
+    <div class="detail-box">
+
+        <h4>
+
+            🌡️ Pressure
+
+        </h4>
+
+        <p id="pressure">
+
+            --
+
+        </p>
+
+    </div>
+
+
+
+    <div class="detail-box">
+
+        <h4>
+
+            🥵 Feels Like
+
+        </h4>
+
+        <p id="feelsLike">
+
+            --
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     SUN INFORMATION
+===================================== -->
+
+<section
+    id="sunContainer"
+    class="sun-section hidden-section">
+
+    <div class="sun-box">
+
+        <h4>
+
+            🌅 Sunrise
+
+        </h4>
+
+        <p id="sunrise">
+
+            --
+
+        </p>
+
+    </div>
+
+
+
+    <div class="sun-box">
+
+        <h4>
+
+            🌇 Sunset
+
+        </h4>
+
+        <p id="sunset">
+
+            --
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     5-DAY FORECAST
+===================================== -->
+
+<section
+    id="forecastContainer"
+    class="hidden-section">
+
+    <!-- Forecast cards will appear here -->
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <p>
+
+        © 2026 WeatherInsight. All Rights Reserved.
+
+        <br>
+
+        Developed by Renzo Gaon with Flask
+
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script
+    src="{{ url_for('static', filename='js/script.js') }}">
+</script>
+
+</body>
+
+</html> 
